@@ -62,7 +62,9 @@ export const AlertCenter: React.FC = () => {
         aVal = new Date(a[sortField]).getTime();
         bVal = new Date(b[sortField]).getTime();
       }
-      return sortOrder === 'asc' ? (aVal as any) - (bVal as any) : (bVal as any) - (aVal as any);
+      const aNum = typeof aVal === 'number' ? aVal : 0;
+      const bNum = typeof bVal === 'number' ? bVal : 0;
+      return sortOrder === 'asc' ? aNum - bNum : bNum - aNum;
     });
 
     return result;

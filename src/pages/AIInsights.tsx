@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useAppStore } from '../store/appStore';
 import { AIInsight } from '../types';
 import { calculateDashboardStats, getFraudByRegion, getFraudByChannel } from '../data/generators';
@@ -8,11 +8,7 @@ export const AIInsights: React.FC = () => {
   const [insights, setInsights] = useState<AIInsight[]>([]);
   const simulateAttack = useAppStore((state) => state.simulateAttack);
 
-  useEffect(() => {
-    generateInsights();
-  }, [transactions]);
-
-  const generateInsights = () => {
+  const generateInsights = useCallback(() => {
     const stats = calculateDashboardStats(transactions);
     const fraudByRegion = getFraudByRegion(transactions);
     const fraudByChannel = getFraudByChannel(transactions);
@@ -95,7 +91,11 @@ export const AIInsights: React.FC = () => {
     });
 
     setInsights(newInsights);
-  };
+  }, [transactions]);
+
+  useEffect(() => {
+    generateInsights();
+  }, [generateInsights]);
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
