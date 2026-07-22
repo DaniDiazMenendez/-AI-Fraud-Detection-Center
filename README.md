@@ -525,3 +525,5 @@ Generado por GitHub Copilot - Azure AI Senior Architect
 **Estado**: ✅ Listo para Producción (con integraciones Azure)
 
 **Powered by**: React • TypeScript • Vite • Tailwind CSS • Azure AI Foundry • Microsoft Fabric
+# AI Fraud Detection Center - GitHub Pages Live
+Deploy Date: 2026-07-22 17:43:20
