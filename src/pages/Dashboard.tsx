@@ -151,7 +151,7 @@ export const Dashboard: React.FC = () => {
                 outerRadius={100}
                 fill="#8884d8"
                 dataKey="fraudCount">
-                {fraudByRegion.map((entry, index) => (
+                {fraudByRegion.map((_entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>

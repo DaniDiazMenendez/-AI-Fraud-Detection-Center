@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useAppStore } from '../store/appStore';
-import { ChatMessage } from '../types';
 import { calculateDashboardStats, getFraudByRegion, getFraudByChannel } from '../data/generators';
 
 export const CopilotAnalyst: React.FC = () => {

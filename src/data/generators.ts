@@ -2,6 +2,7 @@ import { Transaction } from '../types';
 
 const COUNTRIES = ['Argentina', 'Brasil', 'Chile', 'México', 'Colombia', 'Perú'];
 const CHANNELS = ['Web', 'Mobile', 'ATM', 'Branch'] as const;
+type ChannelType = typeof CHANNELS[number];
 const DEVICE_TYPES = [
   'Desktop Chrome',
   'Mobile iOS',
@@ -79,7 +80,7 @@ function getRandomDate(daysBack: number = 30): Date {
   return now;
 }
 
-function getRandomElement<T>(array: T[]): T {
+function getRandomElement<T>(array: readonly T[]): T {
   return array[Math.floor(Math.random() * array.length)];
 }
 
@@ -90,13 +91,13 @@ export function generateMockTransactions(count: number = 500): Transaction[] {
   for (let i = 0; i < count; i++) {
     const riskScore = generateRiskScore();
     const isFraud = Math.random() < fraudPercentage && riskScore > 70;
-    const channel = getRandomElement(CHANNELS);
+    const channel = getRandomElement(CHANNELS) as ChannelType;
     const amount = Math.floor(Math.random() * 5000) + 10;
     const timestamp = getRandomDate();
 
     let reason = '';
     if (isFraud || riskScore > 75) {
-      reason = getRandomFraudReason(riskScore);
+      reason = getRandomFraudReason();
     }
 
     transactions.push({
@@ -124,7 +125,7 @@ export function generateMockTransactions(count: number = 500): Transaction[] {
   );
 }
 
-function getRandomFraudReason(riskScore: number): string {
+function getRandomFraudReason(): string {
   const reasons = [
     'Transacción fuera de horario habitual del cliente',
     'Ubicación geográfica inconsistente',
@@ -143,7 +144,6 @@ function getRandomFraudReason(riskScore: number): string {
 
 export function calculateDashboardStats(transactions: Transaction[]) {
   const frauds = transactions.filter((t) => t.isFraud);
-  const totalAmount = transactions.reduce((sum, t) => sum + t.amount, 0);
   const fraudAmount = frauds.reduce((sum, t) => sum + t.amount, 0);
   const avgRiskScore =
     transactions.reduce((sum, t) => sum + t.riskScore, 0) / transactions.length;

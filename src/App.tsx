@@ -1,5 +1,5 @@
 import './styles/globals.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAppStore } from './store/appStore';
 import { Navbar } from './components/Navbar';

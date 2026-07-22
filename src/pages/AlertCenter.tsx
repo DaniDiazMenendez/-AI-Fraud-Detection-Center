@@ -1,8 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useAppStore } from '../store/appStore';
-import { Transaction } from '../types';
-
-type FilterField = 'country' | 'channel' | 'status' | 'risk';
 
 interface Filters {
   country: string;
