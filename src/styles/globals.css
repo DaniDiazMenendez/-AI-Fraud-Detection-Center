@@ -1,0 +1,108 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+:root {
+  --ms-blue: #0078d4;
+  --ms-blue-dark: #005a9e;
+  --fraud-red: #d13438;
+  --fraud-red-dark: #a4373a;
+  --safe-green: #107c10;
+  --safe-green-dark: #0b5a1f;
+  --warning-orange: #ffb900;
+  --dark-bg: #1f1f1f;
+  --dark-card: #252526;
+  --dark-hover: #2d2d30;
+  --dark-border: #3e3e42;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(37, 37, 38, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, #d13438 0%, #a4373a 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #107c10 0%, #0b5a1f 100%);
+}
+
+/* Text Utilities */
+.text-ms-blue {
+  color: var(--ms-blue);
+}
+
+.text-fraud-red {
+  color: var(--fraud-red);
+}
+
+.text-safe-green {
+  color: var(--safe-green);
+}
+
+.text-warning-orange {
+  color: var(--warning-orange);
+}
+
+/* Background Utilities */
+.bg-ms-blue {
+  background-color: var(--ms-blue);
+}
+
+.bg-fraud-red {
+  background-color: var(--fraud-red);
+}
+
+.bg-safe-green {
+  background-color: var(--safe-green);
+}
+
+.bg-warning-orange {
+  background-color: var(--warning-orange);
+}
+
+.bg-dark-bg {
+  background-color: var(--dark-bg);
+}
+
+.bg-dark-card {
+  background-color: var(--dark-card);
+}
+
+.bg-dark-hover {
+  background-color: var(--dark-hover);
+}
+
+/* Border Utilities */
+.border-dark-border {
+  border-color: var(--dark-border);
+}
+
+.border-ms-blue {
+  border-color: var(--ms-blue);
+}
+
+.border-fraud-red {
+  border-color: var(--fraud-red);
+}
+
+.border-safe-green {
+  border-color: var(--safe-green);
+}
+
+.border-warning-orange {
+  border-color: var(--warning-orange);
+}
